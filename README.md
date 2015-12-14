@@ -27,13 +27,13 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/9q23dmF.gif' title='Video Walkthrough' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/9q23dmF.gif' title='Video Walkthrough' width='184.5' height='333.5' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+The intial implementation described in the video was pretty clear, however I had trouble getting changed fields in the settings view to update the segmented control in the first view. I solved this in a rather hacky fashion by moving data with the prepareForSegue function and creating a new push segue. Even though I had worked out the NSUserDefaults to keep data across restarts it was not saving data simpy from switching views. I now know more about the viewDidAppear function and will be using this in the next iteration after finals to fix my hacky solution.
 
 ## License
 
