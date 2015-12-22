@@ -11,9 +11,10 @@ import UIKit
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var defaultTip: UITextField!
+   
     @IBOutlet weak var maxTip: UITextField!
-    @IBOutlet weak var minTip: UITextField!
 
+    @IBOutlet weak var minTip: UITextField!
     @IBAction func maxEditingDidChange(sender: AnyObject) {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(maxTip.text, forKey: "max_tip")
@@ -55,7 +56,7 @@ class SettingsViewController: UIViewController {
             minTip.text = "\(minValue as! String)%"
         }
         else{
-            maxTip.text = "15%"
+            minTip.text = "15%"
         }
 
     }

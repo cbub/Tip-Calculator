@@ -83,6 +83,7 @@
                     <navigationItem key="navigationItem" title="Tips" id="EwZ-2m-CdR">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="nzH-GS-XYf">
                             <connections>
+                                <action selector="onTap:" destination="BYZ-38-t0r" id="3wV-nr-sUF"/>
                                 <segue destination="aFQ-fK-6fp" kind="push" id="ofd-ld-I1O"/>
                             </connections>
                         </barButtonItem>
@@ -136,20 +137,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NzK-JX-ukS">
-                                <rect key="frame" x="207" y="241" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                <connections>
-                                    <action selector="maxEditingDidChange:" destination="aFQ-fK-6fp" eventType="editingChanged" id="HJ9-ka-HDx"/>
-                                </connections>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f28-h1-FRR">
                                 <rect key="frame" x="207" y="318" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
-                                    <action selector="minEditingDidChange:" destination="aFQ-fK-6fp" eventType="editingChanged" id="Rpj-uj-ZJ5"/>
+                                    <action selector="minEditingDidChange:" destination="aFQ-fK-6fp" eventType="editingDidEnd" id="9gj-sp-Tlx"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rd5-0Q-TLw">
@@ -166,14 +159,22 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NzK-JX-ukS">
+                                <rect key="frame" x="207" y="241" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="maxEditingDidChange:" destination="aFQ-fK-6fp" eventType="editingDidEnd" id="Jpl-Ib-YK1"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="ujn-1g-1Mh"/>
                     <connections>
                         <outlet property="defaultTip" destination="Rd5-0Q-TLw" id="Avw-9a-6Sf"/>
-                        <outlet property="maxTip" destination="NzK-JX-ukS" id="fbi-0d-eH6"/>
-                        <outlet property="minTip" destination="f28-h1-FRR" id="z0A-yG-n7Q"/>
+                        <outlet property="maxTip" destination="NzK-JX-ukS" id="4g2-YW-Xdd"/>
+                        <outlet property="minTip" destination="f28-h1-FRR" id="FTQ-UO-LIU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XIw-QE-WKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
