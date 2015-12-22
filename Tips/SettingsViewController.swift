@@ -17,19 +17,25 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var minTip: UITextField!
     @IBAction func maxEditingDidChange(sender: AnyObject) {
         let defaults = NSUserDefaults.standardUserDefaults()
+        if(maxTip.text != ""){
         defaults.setObject(maxTip.text, forKey: "max_tip")
         defaults.synchronize()
+        }
     }
   
     @IBAction func minEditingDidChange(sender: AnyObject) {
         let defaults = NSUserDefaults.standardUserDefaults()
+        if(minTip.text != ""){
         defaults.setObject(minTip.text, forKey: "min_tip")
         defaults.synchronize()
+        }
     }
     @IBAction func defaultEditingDidChange(sender: AnyObject) {
         let defaults = NSUserDefaults.standardUserDefaults()
+        if(defaultTip.text != ""){
         defaults.setObject(defaultTip.text, forKey: "default_tip")
         defaults.synchronize()
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,13 +52,13 @@ class SettingsViewController: UIViewController {
         else{
             defaultTip.text = "18%"
         }
-        if(maxValue != nil){
+        if(maxValue != nil && (maxValue as! String) != ""){
             maxTip.text = "\(maxValue as! String)%"
         }
         else{
             maxTip.text = "30%"
         }
-        if(minValue != nil){
+        if(minValue != nil && (minValue as! String) != ""){
             minTip.text = "\(minValue as! String)%"
         }
         else{

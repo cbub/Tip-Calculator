@@ -17,12 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="680"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="18" minValue="15" maxValue="35" translatesAutoresizingMaskIntoConstraints="NO" id="xuc-Nz-vjg">
-                                <rect key="frame" x="16" y="281" width="263" height="31"/>
-                                <connections>
-                                    <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="zb5-7l-4Bb"/>
-                                </connections>
-                            </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ZM-gE-4RS">
                                 <rect key="frame" x="18" y="143" width="60" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -73,8 +67,16 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="18" minValue="15" maxValue="35" translatesAutoresizingMaskIntoConstraints="NO" id="xuc-Nz-vjg">
+                                <rect key="frame" x="16" y="281" width="263" height="31"/>
+                                <color key="minimumTrackTintColor" red="0.71372549019999998" green="0.25098039220000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="zb5-7l-4Bb"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.71372549019999998" green="0.25098039220000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="eBo-Hx-965" appends="YES" id="C6R-SH-sgU"/>
@@ -82,6 +84,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tips" id="EwZ-2m-CdR">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="nzH-GS-XYf">
+                            <color key="tintColor" red="0.71372549019999998" green="0.25098039220000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="onTap:" destination="BYZ-38-t0r" id="3wV-nr-sUF"/>
                                 <segue destination="aFQ-fK-6fp" kind="push" id="ofd-ld-I1O"/>
@@ -137,16 +140,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f28-h1-FRR">
-                                <rect key="frame" x="207" y="318" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                <connections>
-                                    <action selector="minEditingDidChange:" destination="aFQ-fK-6fp" eventType="editingDidEnd" id="9gj-sp-Tlx"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rd5-0Q-TLw">
-                                <rect key="frame" x="207" y="171" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="%" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rd5-0Q-TLw">
+                                <rect key="frame" x="173" y="170" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
@@ -159,18 +154,34 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NzK-JX-ukS">
-                                <rect key="frame" x="207" y="241" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="%" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NzK-JX-ukS">
+                                <rect key="frame" x="173" y="241" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
                                     <action selector="maxEditingDidChange:" destination="aFQ-fK-6fp" eventType="editingDidEnd" id="Jpl-Ib-YK1"/>
                                 </connections>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="%" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f28-h1-FRR">
+                                <rect key="frame" x="173" y="317" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="minEditingDidChange:" destination="aFQ-fK-6fp" eventType="editingDidEnd" id="9gj-sp-Tlx"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.71372549019999998" green="0.25098039220000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="ujn-1g-1Mh"/>
+                    <navigationItem key="navigationItem" title="Settings" id="ujn-1g-1Mh">
+                        <barButtonItem key="leftBarButtonItem" title="Return" id="IV4-ak-IqR">
+                            <color key="tintColor" red="0.71372549019607845" green="0.25098039215686274" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="RWn-bt-NxY" kind="unwind" unwindAction="unwindToViewController:" id="fJx-xB-yjO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="defaultTip" destination="Rd5-0Q-TLw" id="Avw-9a-6Sf"/>
                         <outlet property="maxTip" destination="NzK-JX-ukS" id="4g2-YW-Xdd"/>
@@ -178,6 +189,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XIw-QE-WKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="RWn-bt-NxY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1707.5" y="286"/>
         </scene>
