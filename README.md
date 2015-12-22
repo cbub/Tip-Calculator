@@ -20,7 +20,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [x] Implemented a slider for the tip percentage
+* [x] Slider for the tip percentage
 * [x] Updated settings to include max and min tip percentage
 * [x] Updated UI slightly
 
