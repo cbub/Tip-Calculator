@@ -42,35 +42,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         let defaults = NSUserDefaults.standardUserDefaults()
-    
-        // Do any additional setup after loading the view, typically from a nib.
-        let tipValue = defaults.objectForKey("default_tip")
-        let maxValue = defaults.objectForKey("max_tip")
-        let minValue = defaults.objectForKey("min_tip")
-        
-        if(tipValue != nil){
-            tipPercentage.text = "\(tipValue as! String)%"
-            
-        }
-        else{
-            tipPercentage.text = "18%"
-            slider.setValue((tipPercentage.text! as NSString).floatValue, animated: true)
-        }
-        if(maxValue != nil){
-            slider.maximumValue = (maxValue as! NSString).floatValue
-        }
-        else{
-            slider.maximumValue = 30
-        }
-        if(minValue != nil){
-            slider.minimumValue = (minValue as! NSString).floatValue
-        }
-        else{
-            slider.minimumValue = 15
-        }
-        
         let previousDate = defaults.objectForKey("date")
         let date = NSDate()
         if(previousDate != nil){
@@ -102,25 +74,27 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         
         let defaults = NSUserDefaults.standardUserDefaults()
+        
+        // Do any additional setup after loading the view, typically from a nib.
         let tipValue = defaults.objectForKey("default_tip")
         let maxValue = defaults.objectForKey("max_tip")
         let minValue = defaults.objectForKey("min_tip")
         
         if(tipValue != nil){
             tipPercentage.text = "\(tipValue as! String)%"
-            slider.setValue((tipPercentage.text! as NSString).floatValue, animated: true)
+            
         }
         else{
             tipPercentage.text = "18%"
             slider.setValue((tipPercentage.text! as NSString).floatValue, animated: true)
         }
-        if(maxValue != nil){
+        if(maxValue != nil && (maxValue as! NSString) != ""){
             slider.maximumValue = (maxValue as! NSString).floatValue
         }
         else{
             slider.maximumValue = 30
         }
-        if(minValue != nil){
+        if(minValue != nil && (minValue as! NSString) != ""){
             slider.minimumValue = (minValue as! NSString).floatValue
         }
         else{
