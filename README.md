@@ -35,6 +35,8 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 The intial implementation described in the video was pretty clear, however I had trouble getting changed fields in the settings view to update the segmented control in the first view. I solved this in a rather hacky fashion by moving data with the prepareForSegue function and creating a new push segue. Even though I had worked out the NSUserDefaults to keep data across restarts it was not saving data simpy from switching views. I did not fully understand the app's lifecycle, however I now use the ViewWillAppear function as I learned more. 
+A known bugs is that user can put any number they want in the tip percent settings without regard for the others.
+
 
 ## License
 
