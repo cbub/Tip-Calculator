@@ -30,7 +30,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipPercentage: UILabel!
     
     @IBAction func billAmountEditingChanged(sender: AnyObject) {
-        calculate()
+        let tip = NSString(string: billAmount.text!).doubleValue * (NSString(string: tipPercentage.text!).doubleValue * 0.01)
+        tipAmount.text = String(format:"$%.02f", tip)
+        let total = tip + NSString(string: billAmount.text!).doubleValue
+        totalBill.text = String(format:"$%.02f", total)
     }
     
     @IBOutlet weak var tipAmount: UILabel!
@@ -41,21 +44,6 @@ class ViewController: UIViewController {
         
         
         let defaults = NSUserDefaults.standardUserDefaults()
-        let previousDate = defaults.objectForKey("date")
-        let date = NSDate()
-        if(previousDate != nil){
-            if(abs(date.timeIntervalSinceDate(previousDate as! NSDate)) <= 600){
-                let bill = defaults.objectForKey("bill_amount")
-                if(bill != nil && (bill as! String) != ""){
-                    view.endEditing(true)
-                    billAmount.text = "$ \(bill as! String)"
-                    calculate()
-                }else{billAmount.becomeFirstResponder()}
-            }else {billAmount.becomeFirstResponder()}
-        }else {billAmount.becomeFirstResponder()}
-        
-        defaults.setObject(date, forKey: "date")
-        defaults.synchronize()
     
         // Do any additional setup after loading the view, typically from a nib.
         let tipValue = defaults.objectForKey("default_tip")
@@ -82,19 +70,32 @@ class ViewController: UIViewController {
         else{
             slider.minimumValue = 15
         }
+        
+        let previousDate = defaults.objectForKey("date")
+        let date = NSDate()
+        if(previousDate != nil){
+            if(abs(date.timeIntervalSinceDate(previousDate as! NSDate)) <= 600){
+                let bill = defaults.objectForKey("bill_amount")
+                if(bill != nil && (bill as! String) != ""){
+                    view.endEditing(true)
+                    let billDouble = NSString(string: bill as! String).doubleValue
+                    billAmount.text = String(format:"$%.02f", billDouble)
+                    let tip = NSString(string: bill as! String).doubleValue * (NSString(string: tipPercentage.text!).doubleValue * 0.01)
+                    tipAmount.text = String(format:"$%.02f", tip)
+                    let total = tip + billDouble
+                    totalBill.text = String(format:"$%.02f", total)
+                }else{billAmount.becomeFirstResponder()}
+            }else {billAmount.becomeFirstResponder()}
+        }else {billAmount.becomeFirstResponder()}
+        
+        defaults.setObject(date, forKey: "date")
+        defaults.synchronize()
     }
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(billAmount.text, forKey: "bill_amount")
         defaults.synchronize()
-    }
-    
-    func calculate(){
-        let tip = NSString(string: billAmount.text!).doubleValue * (NSString(string: tipPercentage.text!).doubleValue * 0.01)
-        tipAmount.text = String(format:"$%.02f", tip)
-        let total = tip + NSString(string: billAmount.text!).doubleValue
-        totalBill.text = String(format:"$%.02f", total)
     }
     
     override func viewWillAppear(animated: Bool) {
