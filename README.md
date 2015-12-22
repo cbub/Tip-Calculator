@@ -14,7 +14,7 @@ The following **required** functionality is complete:
 The following **optional** features are implemented:
 * [x] Settings page to change the default tip percentage.
 * [ ] UI animations
-* [ ] Remembering the bill amount across app restarts (if <10mins)
+* [x] Remembering the bill amount across app restarts (if <10mins)
 * [ ] Using locale-specific currency and currency thousands separators.
 * [x] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 
@@ -28,13 +28,13 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/W23u2vb.gif' title='Video Walkthrough' width='239.85' height='433.55' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/lpjM4pn.gif' title='Video Walkthrough' width='239.85' height='433.55' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-The intial implementation described in the video was pretty clear, however I had trouble getting changed fields in the settings view to update the segmented control in the first view. I solved this in a rather hacky fashion by moving data with the prepareForSegue function and creating a new push segue. Even though I had worked out the NSUserDefaults to keep data across restarts it was not saving data simpy from switching views. I did not fully understand the app's lifecycle, however I now use the ViewWillAppear function as I learned more. 
+The intial implementation described in the video was pretty clear, however I had trouble getting changed fields in the settings view to update the segmented control in the first view. I solved this in a rather hacky fashion by moving data with the prepareForSegue function and creating a new push segue. Even though I had worked out the NSUserDefaults to keep data across restarts it was not saving data simpy from switching views. I did not fully understand the app's lifecycle, however I now use the ViewWillAppear function as I learned more.
 A known bug is that user can put any number they want in the tip percent settings without regard for the others.
 
 
