@@ -12,6 +12,11 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var billAmount: UITextField!
 
+    @IBAction func onTap(sender: AnyObject) {
+        view.endEditing(true)
+        
+    }
+    
     @IBOutlet weak var slider: UISlider!
     @IBAction func sliderValueChanged(sender: AnyObject) {
         let num = slider.value
@@ -25,11 +30,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipPercentage: UILabel!
     
     @IBAction func billAmountEditingChanged(sender: AnyObject) {
-        let tip = NSString(string: billAmount.text!).doubleValue * (NSString(string: tipPercentage.text!).doubleValue * 0.01)
-        tipAmount.text = String(format:"$%.02f", tip)
-        let total = tip + NSString(string: billAmount.text!).doubleValue
-        totalBill.text = String(format:"$%.02f", total)
-        
+        calculate()
     }
     
     @IBOutlet weak var tipAmount: UILabel!
@@ -37,10 +38,26 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        billAmount.becomeFirstResponder();
-        // Do any additional setup after loading the view, typically from a nib.
-        totalBill.text = "$0.00";
+        
+        
         let defaults = NSUserDefaults.standardUserDefaults()
+        let previousDate = defaults.objectForKey("date")
+        let date = NSDate()
+        if(previousDate != nil){
+            if(abs(date.timeIntervalSinceDate(previousDate as! NSDate)) <= 600){
+                let bill = defaults.objectForKey("bill_amount")
+                if(bill != nil && (bill as! String) != ""){
+                    view.endEditing(true)
+                    billAmount.text = "$ \(bill as! String)"
+                    calculate()
+                }else{billAmount.becomeFirstResponder()}
+            }else {billAmount.becomeFirstResponder()}
+        }else {billAmount.becomeFirstResponder()}
+        
+        defaults.setObject(date, forKey: "date")
+        defaults.synchronize()
+    
+        // Do any additional setup after loading the view, typically from a nib.
         let tipValue = defaults.objectForKey("default_tip")
         let maxValue = defaults.objectForKey("max_tip")
         let minValue = defaults.objectForKey("min_tip")
@@ -66,10 +83,23 @@ class ViewController: UIViewController {
             slider.minimumValue = 15
         }
     }
-
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(billAmount.text, forKey: "bill_amount")
+        defaults.synchronize()
+    }
+    
+    func calculate(){
+        let tip = NSString(string: billAmount.text!).doubleValue * (NSString(string: tipPercentage.text!).doubleValue * 0.01)
+        tipAmount.text = String(format:"$%.02f", tip)
+        let total = tip + NSString(string: billAmount.text!).doubleValue
+        totalBill.text = String(format:"$%.02f", total)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        billAmount.becomeFirstResponder();
+        
         let defaults = NSUserDefaults.standardUserDefaults()
         let tipValue = defaults.objectForKey("default_tip")
         let maxValue = defaults.objectForKey("max_tip")

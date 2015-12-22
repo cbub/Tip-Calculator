@@ -75,6 +75,10 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="eBo-Hx-965" appends="YES" id="C6R-SH-sgU"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Tips" id="EwZ-2m-CdR">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="nzH-GS-XYf">
@@ -94,6 +98,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="eBo-Hx-965">
+                    <connections>
+                        <action selector="onTap:" destination="BYZ-38-t0r" id="QMV-Kn-HX2"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1056.5" y="313"/>
         </scene>
