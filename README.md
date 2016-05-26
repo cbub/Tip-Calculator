@@ -1,6 +1,6 @@
 # Tip Calculator
 
-My first iOS application. Used to calculate tip percentages on a bill, with customizable settings.
+My first iOS application, Tips. Used to calculate tip percentages on a bill, with customizable settings.
 
 Cassie Bub
 
