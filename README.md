@@ -1,32 +1,29 @@
-# Pre-work - Tip Calculator
+# Tip Calculator
 
-Tip Calculator is a tip calculator application for iOS.
+My first iOS application. Used to calculate tip percentages on a bill, with customizable settings.
 
-Submitted by: Cassie Bub
+Cassie Bub
 
 Time spent: 11 hours spent in total
 
 ## User Stories
 
-The following **required** functionality is complete:
+The following functionality is complete:
 * [x] User can enter a bill amount, choose a tip percentage, and see the tip and total values.
-
-The following **optional** features are implemented:
 * [x] Settings page to change the default tip percentage.
-* [ ] UI animations
 * [x] Remembering the bill amount across app restarts (if <10mins)
-* [ ] Using locale-specific currency and currency thousands separators.
 * [x] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
-
-The following **additional** features are implemented:
-
 * [x] Slider for the tip percentage
 * [x] Updated settings to include max and min tip percentage
 * [x] Updated UI slightly
 
+The following **optional** features are implemented:
+* [ ] UI animations
+* [ ] Using locale-specific currency and currency thousands separators.
+
 ## Video Walkthrough 
 
-Here's a walkthrough of implemented user stories:
+Here's a walkthrough of the implemented user story:
 
 <img src='http://i.imgur.com/lpjM4pn.gif' title='Video Walkthrough' width='239.85' height='433.55' alt='Video Walkthrough' />
 
